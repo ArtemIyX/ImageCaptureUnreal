@@ -30,5 +30,11 @@ public:
 	TArray<UImagePointComponent*> GetAllImagePoints() const;
 
 	UFUNCTION(BlueprintCallable)
-	TArray<FVector> GetImagePointsLocations() const;
+	TArray<FVector> GetImagePointsWorldLocations() const;
+
+	UFUNCTION(BlueprintCallable)
+	void ConvertWorldLocationToScreen(const TArray<FVector>& InLocations, TArray<FVector2D>& OutViewPortLocation);
+
+	UFUNCTION(BlueprintCallable)
+	void CalculateBoundingSquare(const TArray<FVector2D>& Points, FVector2D& OutCenter, float& OutHalfSize);
 };
